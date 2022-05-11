@@ -1,0 +1,120 @@
+*::after, *, *::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body{
+    background-color: rgb(105, 151, 242);
+}
+
+.container__btn {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    padding: .5rem;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.toast {
+    position: fixed;
+    z-index: 9999999999;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.toast__msg {
+    background-color: rgb(69, 206, 106);
+    border-radius: 10px;
+    padding: .8rem;
+    width: 250px;
+    min-height: 60px;
+    height: auto;
+    animation: .5s animateToastMsg linear;
+    display: flex;
+    justify-content: space-between;
+    opacity: .5;
+}
+
+.toast__msg:hover {
+    opacity: 1;
+}
+
+.toast__content {
+    display: flex;
+    align-items: center;
+}
+
+.toast__close {
+    font-size: 18px;
+    font-weight: 900;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: .4;
+}
+
+.toast__close:hover {
+    opacity: 1;
+    font-size: 24px;
+}
+
+.container__btn {
+    width: 250px;
+}
+
+.remove__toast {
+    transform: translateX( 350px );
+    animation: .3s animationRemove linear;
+}
+
+.btn--toast {
+    width: 100%;
+    background-color: rgb(240, 41, 34);
+    color: white;
+    padding-top: .8rem;
+    padding-bottom: .8rem;
+    border-radius: 4px;
+}
+
+@keyframes animateToastMsg {
+    
+    0% {
+        opacity: 0;
+        transform: translateY( -60px );
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY( 0 );
+    }
+
+}
+
+@keyframes animationRemove {
+    0% {
+        transform: translateX( 0 );
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX( 350px );
+    }
+}
