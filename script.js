@@ -1,15 +1,16 @@
 
 window.addEventListener( 'DOMContentLoaded', () => {
-    
+    let cont  = 0
     const toast = document.querySelector('.toast')
     const btn = document.querySelector('.btn')
     let btnToastClose
     const createToast = () => {
+        cont++
         let toastMsg = document.createElement( 'div' )
         toastMsg.classList.add( 'toast__msg' )
         let toastContent = document.createElement( 'div' )
         toastContent.classList.add( 'toast__content' )
-        toastContent.innerHTML = 'msg'
+        toastContent.innerHTML = 'msg' + cont
         let toastClose = document.createElement( 'div' )
         toastClose.classList.add( 'toast__close' )
         toastClose.innerHTML = '&times'
@@ -44,10 +45,10 @@ window.addEventListener( 'DOMContentLoaded', () => {
                         toast.removeChild( tagRemove )
                         if( index == 0 ) {
                             setTimeout( () => {
-                                toast.children[ index ].classList.add( 'remove__toast' )
-
+                                if( toast.children.length != 1 ) return
+                                toast.children[ 0 ].classList.add( 'remove__toast' )
                                 setTimeout( () => {
-                                    toast.removeChild( toast.children[ index ] )
+                                        toast.removeChild( toast.children[ 0 ] )
                                 }, timeoutClose )
 
                             },  80 )
@@ -80,7 +81,7 @@ window.addEventListener( 'DOMContentLoaded', () => {
                         toast.removeChild( toast.children[ 0 ] )
                     }, 80 )
 
-                },  80 )
+                },  100 )
         }, 300 )
     } )
 
