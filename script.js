@@ -55,9 +55,11 @@ window.addEventListener( 'DOMContentLoaded', () => {
                     // }, 100 )
                     }, timeoutClose )
                 }, timeoutAddClass );
+
             }
             
         } )
+
     }
 
     btn.addEventListener( 'click', ( e ) => {
@@ -70,6 +72,15 @@ window.addEventListener( 'DOMContentLoaded', () => {
         e.target.parentNode.classList.add( 'remove__toast' )
         setTimeout( () => {
             toast.removeChild( e.target.parentNode )
+            if( toast.children.length != 1 ) return
+                setTimeout( () => {
+                    toast.children[ 0 ].classList.add( 'remove__toast' )
+
+                    setTimeout( () => {
+                        toast.removeChild( toast.children[ 0 ] )
+                    }, 80 )
+
+                },  80 )
         }, 300 )
     } )
 
